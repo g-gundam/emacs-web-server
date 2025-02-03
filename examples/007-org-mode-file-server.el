@@ -10,8 +10,8 @@
          (unless path (ws-send-404 process)) ; send 404 if not in docroot
          (if (file-directory-p path)
              (progn ;; send directory listing, convert org files to html/tex/txt
-               (ws-response-header proc 200 (cons "Content-type" "text/html"))
-               (process-send-string proc
+               (ws-response-header process 200 (cons "Content-type" "text/html"))
+               (process-send-string process
                  (concat "<ul>"
                          (mapconcat
                           (lambda (f)
